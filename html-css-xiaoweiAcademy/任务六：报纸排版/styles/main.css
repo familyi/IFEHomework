@@ -204,9 +204,16 @@ header{
 	color: #11456b;
 	margin: 16px 0;
 }
-.main .main-left .para:first-child{
+.main .main-left article .first-para{
+	text-indent: 0;
+}
+
+.main .main-left  .para:first-letter{
 	font:3em "微软雅黑";
 	color: #f5e327;
+	float: left;
+	margin-right: 4px;
+
 }
 
 .main .main-right .techPic{
