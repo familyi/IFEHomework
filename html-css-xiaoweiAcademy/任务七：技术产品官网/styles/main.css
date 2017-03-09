@@ -1,0 +1,550 @@
+/*小图标*/
+.icons{display:inline-block;background:url(../images/icons.png)  no-repeat;}
+.icons06{height:17px;width:14px;background-position:0 0;}
+.icons28{height:25px;width:24px;background-position:0 -17px;}
+.icons34{height:25px;width:25px;background-position:0 -42px;}
+.icons32{height:25px;width:28px;background-position:0 -67px;}
+.icons30{height:25px;width:29px;background-position:0 -92px;}
+.icons03{height:31px;width:30px;background-position:0 -117px;}
+.icons13{height:40px;width:35px;background-position:0 -148px;}
+.icons15{height:40px;width:37px;background-position:0 -188px;}
+.icons17{height:39px;width:41px;background-position:0 -228px;}
+.icons11{height:41px;width:42px;background-position:0 -267px;}
+.icons24{height:92px;width:92px;background-position:0 -308px;}
+
+.wrapper{
+	margin: 0 auto;
+	width: 1280px;
+}
+
+/*header start*/
+.header{
+	height: 60px;
+}
+header .top-l{
+	margin-left: 56px;
+}
+header .top-l .icons{
+	margin-top: 14px;
+	margin-right: 14px;
+}
+header .top-l .word{
+	font: 21px "黑体";
+	color: #555656;
+	position: relative;
+	top:-4px;
+}
+
+header .top-r nav  li:hover{
+	color: #e74f4d;
+	border-bottom: 3px solid #e74f4d;
+}
+header .top-r nav li a{
+	color: #787b83;
+}
+header .top-r nav li{
+	float: left;
+	font: 14px/60px "微软雅黑";
+	width: 64px;
+	height: 60px;
+	margin-right: 26px;
+	text-align:center;
+}
+
+header .top-r .login{
+	font: 14px "微软雅黑";
+	width: 64px;
+	margin-top: 20px;
+	color: #e74f4d; 
+}
+
+/*header end*/
+
+/*banner start*/
+.banner .wrapper{
+	height: 692px;
+	background: url(../images/banner1.gif) no-repeat;
+	background-size: 100%;
+}
+.banner .content{
+	padding-top: 232px;
+	padding-left: 112px;
+}
+.banner .content h1{
+	font: 60px/76px "微软雅黑";
+	color: #fff;
+}
+.banner .content h2{
+	width: 320px;
+	font:21px/36px "微软雅黑";
+	color: #fff;
+
+}
+.banner .content a{
+	margin-top: 60px;
+	display: block;
+	width: 332px;
+	height: 66px;
+	text-align: center;
+	font: 30px/66px "微软雅黑";
+	color: #fff;
+	background-color: #e74f4d;
+}
+/*banner end*/
+
+/*four benefits start*/
+.bene li{
+	float: left;
+	width: 320px;
+	height: 250px;
+	text-align: center;
+}
+.bene span{
+	margin: 44px 0;
+}
+.bene p{
+	width: 160px;
+	padding:0 80px 18px;
+	font: 14px/18px "黑体";
+	color: #767777;
+	border-right: 1px solid #767777;
+}
+/*four benefits end*/
+
+/*search info start*/
+.search-info .search-top{
+	width: 100%;
+	height: 358px;
+	background-color: #edecec;
+	text-align: center;
+}
+.search-info .search-top span{
+	margin-top: 90px;
+}
+.search-info .search-top p{
+	font: 59px "黑体";
+	margin-top: 48px;
+	color: #acadad;
+}
+.search-info .search-main{
+	height: 339px;
+	background: url(../images/banner2.png) no-repeat;
+	text-align: center;
+}
+.search-info .search-main h1{
+	font: 21px "微软雅黑";
+	color:#fff;
+	padding-top: 52px;
+}
+.search-info .search-main h2{
+	font: 12px "微软雅黑";
+	color: #fff;
+	margin-top: 16px;
+	margin-bottom: 50px;
+}
+
+.search-info .search-main select {
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #000;
+
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url("../images/select-bg03.png") no-repeat 200px center;
+
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 18px;
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+.search-info .search-main select::-ms-expand { display: none; }
+
+.search-info .search-main select{
+	width: 226px;
+	height: 36px;
+	color: #a8aaaa;
+	border: none;
+	background-color: #fff;
+	padding-left: 10px;
+	margin-right: 28px;
+}
+
+.search-info .search-main select:focus{
+	border: 2px solid #be4e48;
+}
+
+.search-info .search-main select option{
+	appearance:none;
+	-moz-appearance: none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+}
+.search-info .search-main select:focus option:hover{
+	 background-color: #000;
+}
+.search-info .search-main option{
+	padding-left: 20px;
+	display: inline-block;
+	font: 12px/24px "微软雅黑";
+	height: 24px;
+	color: #a8aaaa;
+	background-color: #e3e3e4;
+	border-color: 2px solid #be4e48;
+}
+.search-info .search-main .search-btn{
+	width: 236px;
+	height: 36px;
+	font: 14px/36px "微软雅黑";
+	color: #fff;
+	background-color: #be4e48;
+	border: none;
+	text-align: center;
+}
+
+
+/*search info end*/
+
+/*activity start*/
+.act{
+	padding-left: 146px;
+	margin-top: 100px;
+	padding-bottom: 114px;
+}
+.act .act-item{
+	float: left;
+	margin-right:36px;
+	text-align: center;
+}
+
+.act .act-pic{
+	width: 218px;
+	height: 335px;
+	border: 1px solid #dadada;
+	display: table-cell;
+	vertical-align: middle;
+}
+.act .act-item h1{
+	font: 16px/24px "黑体";
+	margin-top: 20px;
+	color:#323333;
+}
+.act .act-item h2{
+	font: 12px "微软雅黑";
+	color:#909191;
+}
+.act .act-sh h1{
+	font-size: 26px;
+	margin-top: 0px;
+	margin-bottom: 8px;
+	letter-spacing: 20px;
+
+}
+.act .act-sh .act-pic{
+	margin-top: 8px;
+}
+
+/*aactivity end*/
+
+/*new world start*/
+.new-box .new-world .world-pic{
+	width: 849px;
+	height: 564px;
+	background: url(../images/world-l.png) no-repeat;
+	text-align: center;
+}
+.new-box .new-world .world-pic .top-word{
+	font: 50px "微软雅黑";
+	color: #fff;
+	margin-top: 120px;
+}
+.new-box .new-world .world-pic .time{
+	font: 158px "微软雅黑";
+	color: #fff;
+	line-height: 150px;
+}
+
+.new-box .new-world .peking{
+	font: 22px "微软雅黑";
+	color: #fff;
+	width: 160px;
+	margin:0 auto;
+	text-align: left;
+	margin-top: 18px;
+}
+.new-box .new-world .details{
+	margin-left: 850px;
+	padding-top: 166px;
+	text-align: center;
+}
+.new-box .new-world .details h1{
+	font: 18px "微软雅黑";
+	color: #4b4c4c;
+}
+.new-box .new-world .details h1 span{
+	color: #e74f4d;
+}
+.new-box .new-world .details .content{
+	width: 284px;
+	margin:22px auto;
+	text-align: left;
+	font: 12px/30px "微软雅黑";
+	color:#b0b0b0;
+}
+.new-box .new-world .details .more{
+	display: block;
+	width: 104px;
+	height: 32px;
+	border: 1px solid #e74f4d;
+	font: 14px/32px "微软雅黑";
+	color: #e74f4d;
+	margin:42px auto;
+
+	margin-bottom: 24px;
+}
+.new-box .new-world .details .round-three{
+	width: 80px;
+	margin: 0 auto;
+}
+.new-box .new-world .details .round{
+	display:inline-block;
+	margin-right: 14px;
+	width: 10px;
+	height: 10px;
+	border-radius: 12px;
+	border: 1px solid #929293;
+}
+.new-box .new-world .details .round:last-child{
+	margin-right: 0;
+}
+.new-box .new-world .details .active{
+	background-color: #929293;
+}
+
+.new-box .new-period .period-item{
+	padding-top: 174px;
+	width: 33%;
+	height: 346px;
+	text-align: center;
+}
+.new-box .new-period .period-l{
+	background-color: #e74f4d;
+	color:#fff;
+}
+.new-box .new-period .period-m{
+	background-color: #fff;
+	color:#e74f4d;
+}
+.new-box .new-period .period-item p{
+	font: 21px/32px "黑体";
+}
+.new-box .new-period .period-item .line{
+	width: 30px;
+	height: 2px;
+	margin: 20px auto;
+}
+.new-box .new-period .period-item .more{
+	display: block;
+	width: 168px;
+	height: 42px;
+	line-height: 42px;
+	font-size:21px;
+	margin: 0 auto;
+}
+.new-box .new-period .period-l .line{
+	background-color: #fff;
+}
+.new-box .new-period .period-m .line{
+	background-color: #e74f4d
+}
+.new-box .new-period .period-l .more{
+	color: #fff;
+	border: 1px solid #fff;
+}
+.new-box .new-period .period-m .more{
+	color: #e74f4d;
+	border: 1px solid #e74f4d;
+}
+.new-box .new-period .period-r{
+	position: relative;
+	background: url(../images/period-r.png) no-repeat;
+}
+.new-box .new-period .period-r .tri{
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -14px;
+	width: 0;
+	height: 0;
+	border-left: 23px solid #fff;
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid transparent;
+}
+/*new world end*/
+
+/*volunteer start*/
+.volunteer .vol-top{
+	margin-top: 110px;
+	text-align: center;
+}
+.volunteer .vol-top h1{
+	font: 21px/36px "黑体";
+	color: #323333;
+}
+.volunteer .vol-top .line{
+	width: 30px;
+	height: 2px;
+	background-color:#e74f4d;
+	margin:4px auto; 
+}
+.volunteer .vol-top p{
+	font: 12px/18px "微软雅黑";
+	color: #aaa;
+	width: 421px;
+	margin: 16px auto;
+}
+.volunteer .vol-bot{
+	margin-top: 106px;
+}
+.volunteer .vol-bot .vol-item{
+	width: 290px;
+	margin-right: 106px;
+	margin-left: 137px;
+	margin-bottom: 57px;
+}
+.volunteer .vol-bot .vol-item:last-child{
+	margin-bottom: 0;
+}
+.volunteer .vol-bot .vol-item h2{
+	font: 14px "黑体";
+	color: #666160;
+}
+.volunteer .vol-bot .vol-item p{
+	margin-top: 11px;
+	font: 12px/22px "宋体";
+	color: #b5b3b3;
+}
+.volunteer .vol-bot .vol-item .more{
+	font: 12px "宋体";
+	color: #b5b3b3;
+	float: right;
+
+}
+.volunteer .vol-bot .vol-item .more .tri{
+	display: inline-block;
+	border-right: 2px solid #9e9a98;
+    border-top: 2px solid #9e9a98;
+    height: 6px;
+    width: 6px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg); 
+	margin-right: 4px;
+}
+/*volunteer end*/
+
+/*form star*/
+.vol-form{
+	width: 666px;
+}
+.vol-form .form-text{
+	width: 296px;
+	height: 40px;
+	background-color: #edecee;
+	margin: 0 18px 14px 0;
+	font: 12px/40px "宋体";
+	padding-left: 14px; 
+	color:#6c6868;
+}
+.vol-form .form-text input{
+	color:#6c6868;
+	background-color: #edecee;
+}
+.vol-form .textarea{
+	width: 624px;
+	height: 120px;
+	font: 12px/30px "宋体"; 
+	color:#6c6868;
+	padding-left: 14px;
+	background-color: #edecee;
+} 
+.vol-form .textarea textarea{
+	width: 610px;
+	height: 76px;
+	display: block;
+	font: 12px "宋体"; 
+	color:#6c6868;
+	background-color: #edecee;
+}
+.vol-form .submit{
+ 	width: 638px;
+ 	height: 40px;
+ 	font: 14px "黑体";  
+ 	color:#6c6868;
+ 	margin-top: 14px;
+ 	background-color:  #edecee;
+}
+/*form end*/
+
+/*footer start*/
+footer{
+	margin-top: 164px;
+	height: 414px;
+}
+footer .contact{
+	padding-top: 90px;
+	width: 100%;
+	height: 266px;
+	text-align: center;
+	background-color: #32353e;
+	color: #fff;
+}
+footer .contact h2{
+	font: 21px/40px "黑体";
+
+}
+footer .contact p{
+	font: 12px/18px "宋体";
+	font-size: 12px;
+	width: 470px;
+	margin: 0 auto;
+}
+footer .copyright a{
+	color: #e0e0e1;
+}
+footer .copyright{
+	width: 100%;
+	height: 58px;
+	color: #e0e0e1;
+	font: 12px/58px "宋体";
+	background-color: #2f2f38;
+}
+footer .email-form {
+	margin-top: 28px;
+}
+footer .email-form .email-text{
+	width: 422px;
+	height: 42px;
+	color: #aaa;
+	padding-left: 10px;
+}
+footer .email-form .submit-btn{
+	width: 80px;
+	height: 42px;
+	color: #fff;
+	background-color: #6f7178;
+	cursor: pointer;
+	font: 15px "微软雅黑";
+	position: relative;
+	top: 1px;
+}
+footer .friend-links{
+	margin-top: 36px;
+
+}
+footer .friend-links span{
+	margin-right: 28px;
+}
+/*footer end*/
