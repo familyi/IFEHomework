@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务十二：CSS3新特性</title>
+<style type="text/css">
+/*css3选择器*/
+table{
+	text-align:center;
+}
+table tr:first-child{
+	background-color: #000;
+	color: #fff;
+}
+table tr:nth-child(2),table tr:nth-child(3),table tr:nth-child(4){
+	color: red;
+}
+table tr td:nth-child(1),table th:nth-child(1){
+	width: 40px;
+}
+table tr td:nth-child(2),table th:nth-child(2){
+	width: 150px;
+}
+table tr td:nth-child(3),table th:nth-child(3){
+	width: 50px;
+}
+table tr:nth-child(odd):not(.title){
+	background-color: #ccc;
+}
+
+/*css3过渡*/
+input[name=text]{
+	width: 200px;
+	height: 20px;
+	border: 2px solid #7DAFEA;
+	box-shadow:0 0 4px #7DAFEA;
+	border-radius: 5px;
+	transition: width 2s ease,height 2s ease;
+}
+
+input[name=text]:hover{
+	width: 400px;
+	height: 40px;
+}
+/*css3动画*/
+
+.green-box{
+	width: 400px;
+	height: 200px;
+	position: relative;
+	background-color: green;
+	
+}
+.blue-box{
+	width: 0;
+	height: 200px;
+	background-color: blue;
+	animation: gtb 3s ease;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+@keyframes gtb{
+	from{width: 0;}
+	to{width: 400px;}
+}
+.green-box .btm{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.green-box .num{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background-color:rgba(225,225,225,0.5);
+	margin-right: 4px;
+}
+.green-box .num:last-child{
+	margin-right: 0;
+}
+
+
+
+</style>
+</head>
+<body>
+<h1>css3选择器</h1>
+<table>
+	<tr class="title"><th>排名</th><th>网站</th><th>热度</th></tr>
+	<tr><td>1</td><td>百度前端技术学院</td><td>13000</td></tr>
+	<tr><td>2</td><td>百度前端技术学院</td><td>12000</td></tr>
+	<tr><td>3</td><td>百度前端技术学院</td><td>11000</td></tr>
+	<tr><td>4</td><td>百度前端技术学院</td><td>10000</td></tr>
+	<tr><td>5</td><td>百度前端技术学院</td><td>9000</td></tr>
+	<tr><td>6</td><td>百度前端技术学院</td><td>8000</td></tr>
+	<tr><td>7</td><td>百度前端技术学院</td><td>7000</td></tr>
+	<tr><td>8</td><td>百度前端技术学院</td><td>6000</td></tr>
+	<tr><td>9</td><td>百度前端技术学院</td><td>5000</td></tr>
+	<tr><td>10</td><td>百度前端技术学院</td><td>4000</td></tr>
+</table>
+
+
+
+<h1>css3过渡</h1>
+<h2>hover触发</h2>
+<input type="text" name="text" class="text">
+
+
+<h1>css3动画</h1>
+
+<div class="green-box">
+<div class="blue-box"></div>
+	<div class="btm">
+		<span class="num">1</span><span class="num">2</span><span class="num">3</span>
+	</div>
+</div>
+</body>
+</html>
