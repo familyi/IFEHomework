@@ -8,11 +8,11 @@
 table{
 	text-align:center;
 }
-table tr:first-child{
+table thead{
 	background-color: #000;
 	color: #fff;
 }
-table tr:nth-child(2),table tr:nth-child(3),table tr:nth-child(4){
+table tbody tr:nth-child(-n+3){
 	color: red;
 }
 table tr td:nth-child(1),table th:nth-child(1){
@@ -24,7 +24,7 @@ table tr td:nth-child(2),table th:nth-child(2){
 table tr td:nth-child(3),table th:nth-child(3){
 	width: 50px;
 }
-table tr:nth-child(odd):not(.title){
+table tbody tr:nth-child(even){
 	background-color: #ccc;
 }
 
@@ -89,17 +89,21 @@ input[name=text]:hover{
 <body>
 <h1>css3选择器</h1>
 <table>
-	<tr class="title"><th>排名</th><th>网站</th><th>热度</th></tr>
-	<tr><td>1</td><td>百度前端技术学院</td><td>13000</td></tr>
-	<tr><td>2</td><td>百度前端技术学院</td><td>12000</td></tr>
-	<tr><td>3</td><td>百度前端技术学院</td><td>11000</td></tr>
-	<tr><td>4</td><td>百度前端技术学院</td><td>10000</td></tr>
-	<tr><td>5</td><td>百度前端技术学院</td><td>9000</td></tr>
-	<tr><td>6</td><td>百度前端技术学院</td><td>8000</td></tr>
-	<tr><td>7</td><td>百度前端技术学院</td><td>7000</td></tr>
-	<tr><td>8</td><td>百度前端技术学院</td><td>6000</td></tr>
-	<tr><td>9</td><td>百度前端技术学院</td><td>5000</td></tr>
-	<tr><td>10</td><td>百度前端技术学院</td><td>4000</td></tr>
+	<thead>
+		<tr class="title"><th>排名</th><th>网站</th><th>热度</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>1</td><td>百度前端技术学院</td><td>13000</td></tr>
+		<tr><td>2</td><td>百度前端技术学院</td><td>12000</td></tr>
+		<tr><td>3</td><td>百度前端技术学院</td><td>11000</td></tr>
+		<tr><td>4</td><td>百度前端技术学院</td><td>10000</td></tr>
+		<tr><td>5</td><td>百度前端技术学院</td><td>9000</td></tr>
+		<tr><td>6</td><td>百度前端技术学院</td><td>8000</td></tr>
+		<tr><td>7</td><td>百度前端技术学院</td><td>7000</td></tr>
+		<tr><td>8</td><td>百度前端技术学院</td><td>6000</td></tr>
+		<tr><td>9</td><td>百度前端技术学院</td><td>5000</td></tr>
+		<tr><td>10</td><td>百度前端技术学院</td><td>4000</td></tr>
+	</tbody>	
 </table>
 
 
