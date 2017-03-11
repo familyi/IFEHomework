@@ -1,0 +1,20 @@
+基本语法：
+flex-derection：[row,column,row-reverse,column-reverse]
+flex-wrap：[nowrap,wrap,wrap-reverse]
+flex-flow：flex-derection flex-wrap
+
+justify-content：主轴对齐伸缩项目
+[ flex-start,flex-end,center,space-between,space-around]
+
+align-content：伸缩项目堆栈伸缩行
+[ flex-start,flex-end,center,stretch,space-between,space-around ]
+
+align-item：侧轴对齐伸缩项目
+[ flex-start,flex-end,center,stretch,baseline]
+
+flex：使你的元素具有弹性
+flex-grow  flex-shrink  flex-basis
+
+order：改变元素布局的顺序
+flex:auto：相当于flex: 1 1 auto
+flex:initial：相当于flex: 0 1 auto

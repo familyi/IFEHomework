@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务十：flex布局练习</title>
+<style type="text/css">
+body,div{
+	margin: 0;
+	padding: 0;
+}
+#main{
+	-webkit-display:flex;
+	display: flex;
+	-webkit-flex-flow:row wrap;
+	flex-flow:row wrap;
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+	-webkit-align-content:center;
+	align-content: center;
+	margin: 20px;
+	height: 500px;
+	border:1px solid #999;
+}
+#main>div{
+	width: 150px;
+	border: 1px solid #f00;
+	padding: 20px;
+	margin-top: 10px;
+}
+.first{
+	height: 120px;
+}
+.second{
+	height: 100px;
+}
+.third{
+	height:40px;
+}
+.fourth{
+	height: 200px;
+}
+#main .fourth{
+	border: 1px solid blue;
+}
+@media(max-width: 640px){
+	#main{
+
+		-webkit-align-content:flex-start;
+		align-content:flex-start;
+	}
+
+	.first,.second,.third{
+		-webkit-order:1;
+		order:1;
+	}
+	.fourth{
+		-webkit-order:0;
+		order:0;
+	}
+}
+</style>
+</head>
+<body>
+<div id="main">
+	<div class="first"></div>
+	<div class="second"></div>
+	<div class="third"></div>
+	<div class="fourth"></div>
+</div>
+</body>
+</html>
