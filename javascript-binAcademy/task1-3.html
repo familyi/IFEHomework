@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务一-任务三：零基础JavaScript编码</title>
+</head>
+<body>
+<h1>task1：</h1>
+<label for="aqi-input">请输入北京今天空气质量</label>
+<input type="text" name="text" id="aqi-input">
+<button id="button">确认填写</button>
+<div>您输入的值是： <span id="aqi-display">尚无录入</span></div>
+
+<h1>task2</h1>
+<p>考点1：数组-使用filter,sort,reverse,map,forEach方法</p>
+<p>考点2：动态创建元素createElement,appendChild方法</p>
+<h3>污染城市列表</h3>
+<ul id="api-list"></ul>
+
+<h1>task3:</h1>
+<ul id="source" style="float: left;">
+	<li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+</ul>
+<button id="sort-btn">排序</button>
+<ul id="resort" style="float: left;margin-left: 50px;">
+	
+</ul>
+
+<script type="text/javascript">
+// task1:显示输入文本
+(function(){
+	 var content=document.getElementById("aqi-input");
+	 var button=document.getElementById("button");
+	 var display=document.getElementById("aqi-display");
+	 button.onclick=function(){
+	 	display.innerHTML = content.value;
+	 }
+})();
+
+
+//task2: 筛选数组显示-使用filter,sort,reverse,map,forEach方法,createElement,appendChild
+var aqiData=[
+	["北京",90],
+	["上海",50],
+	["福州",10],
+	["广州",50],
+	["成都",90],
+	["西安",100],
+];
+(function(){
+	/*解题思路:
+	1.使用filter方法获取空气质量指数大于60的城市；
+	2.使用sort方法将空气质量指数大于60的几个城市进行排序；
+	3.使用map方法对排好序的数组添加相应格式和相关文字，名次顺序可以使用数组的indexOf方法获得；
+	4.使用forEach方法将数组元素遍历添加到<ul>的innerHTML中。
+	*/
+	var rank=["一","二","三","四","五"];
+	var filterData=aqiData.filter(function(item,index,array){
+
+		return (array[index][1]>60);
+	});
+
+	var mapData=filterData.map(function(item,index,array){
+		var rankstr="第"+rank[index]+"名："+array[index];
+		return rankstr;
+	});
+
+	mapData.forEach(function(item,index,array){
+		var api_list=document.getElementById("api-list");
+		var item=document.createElement("li");
+		item.innerHTML=array[index];
+		api_list.appendChild(item);
+	});
+
+})();
+
+
+//task:3
+/**
+ * getData方法
+ * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
+ * 返回一个数组，格式见函数中示例
+ */
+
+function getData() {
+ 	var data=[];
+ 	var data_item=[];
+ 	var source=document.getElementById("source");
+ 	var source_li=source.getElementsByTagName("li");
+ 	for(var i=0;i<source_li.length;i++){
+ 		var source_li_text=source_li[i].firstChild.nodeValue;
+ 		var source_city=source_li_text.slice(0,-5);
+ 		var source_qual=source_li[i].lastChild.innerHTML;
+ 		data_item.push(source_city);
+ 		data_item.push(source_qual);
+ 		data.push(data_item);
+ 		data_item=[];
+ 	}
+  return data;
+
+}
+
+/**
+ * sortAqiData
+ * 按空气质量对data进行从小到大的排序
+ * 返回一个排序后的数组
+ */
+function sortAqiData(data) {
+	data.sort(function(a,b){
+		return b[1]-a[1];
+	});
+}
+
+/**
+ * render
+ * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
+ * 格式见ul中的注释的部分
+ */
+
+function render(data) {
+	var rank=["一","二","三","四","五","六","七"];
+	var resort=document.getElementById("resort");
+	 dataMap=data.map(function(item,index,array){
+		var str="第"+rank[index]+"名："+data[index][0]+"空气质量<b>"+data[index][1]+"</b>";
+		return str;
+	});
+	dataMap.forEach(function(item,index,array){
+		var li=document.createElement("li");
+		li.innerHTML=array[index];
+		resort.appendChild(li);
+	});	
+}
+
+function btnHandle(){
+  var aqiData = getData();
+  sortAqiData(aqiData);
+  render(aqiData);
+ 
+}
+
+function init() {
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+  var sort_btn=document.getElementById("sort-btn");
+	  sort_btn.addEventListener("click",btnHandle,false);
+
+}
+
+init();
+</script>
+</body>
+</html>

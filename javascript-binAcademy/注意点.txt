@@ -1,0 +1,12 @@
+正则表达式中使用变量:
+1、一定要使用eval将组合的字符串进行转换，不能直接将字符串传入给replace函数。
+
+2、正则表达式中{}  []等保留符号，前面需要加转义符 \ 标识，而且需要加两个
+
+3、不使用eval，正则表达式使用RegExp创建。
+
+string = string.replace(eval('/\\{'+(i-1)+'\\}/g'),arguments[i]);
+
+var reg=new RegExp('\\{'+(i-1)+'\\}');
+
+textarea中字体不能单独改变颜色

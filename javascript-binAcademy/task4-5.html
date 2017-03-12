@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务四-五：基础JavaScript练习</title>
+<style type="text/css">
+#content{
+	list-style: none;
+	height: 400px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-end;
+
+}
+
+.num{
+	width: 40px;
+	color:#fff;
+	background-color: red;
+	text-align: center;
+	margin-right: 4px;
+	cursor: pointer;
+
+}
+</style>
+</head>
+<body>
+<input id="num-input" type="text" maxlength=3 name="text">
+
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+
+<ul id="content"></ul>
+
+<script type="text/javascript">
+	
+(function(){
+	var num_input=document.getElementById("num-input");
+	var content=document.getElementById("content");
+	var left_in=document.getElementById("left_in");
+	var left_out=document.getElementById("left_out");
+	var right_in=document.getElementById("right_in");
+	var right_out=document.getElementById("right_out");	
+	var data=[];
+
+		left_in.addEventListener("click",leftIn,false);
+		left_out.addEventListener("click",leftOut,false);
+		right_in.addEventListener("click",rightIn,false);
+		right_out.addEventListener("click",rightOut,false);
+
+
+		function del(){
+			var li_item=document.getElementsByTagName("li");	
+				for(var i=0;i<li_item.length;i++){
+					li_item[i].onclick=function(){
+						console.log("++");
+					}
+			}
+		
+		}
+		
+			
+			
+	
+		
+
+		// 显示li
+		function show(){
+			content.innerHTML="";
+		
+				for(var i=0;i<data.length;i++){	
+
+					var li=document.createElement("li");
+					li.className="num";	
+					li.innerHTML=data[i];
+					li.style.height=data[i]*4+"px";
+					//content.style.width=(data[i].length)*44+"px";
+					content.appendChild(li);	
+			}
+		}
+		//左进
+		function leftIn(){
+			var value=num_input.value;
+			if(validate()){
+				value=num_input.value;
+				if(data.length<5){
+					data.unshift(value);
+					show();		
+				}else{
+					alert("元素超过5个！");
+				}
+			}
+			
+		}
+		//左出
+		function leftOut(){
+			if(data.length==0){
+				alert("元素为空！");return;
+			}
+			var out=data.shift();
+			show();
+			alert("你删除的元素是："+out);
+		}
+		//右进
+		function rightIn(){
+			var value=num_input.value;
+			if(validate()){
+				value=num_input.value;
+				if(data.length<5){
+					data.push(value);
+					show();
+				}else{
+					alert("元素不能超过5个！");
+				}
+				
+			}	
+		}
+		//右出
+		function rightOut(){
+			if(data.length==0){
+				alert("元素为空！");
+			}else{
+				var out=data.pop();
+				show();
+				alert("你删除的元素是："+out);
+			}
+			
+		}
+
+		//验证：10-100数字
+		function validate(){
+			var value=num_input.value;
+			if(value>100||value<10){
+				num_input.value="";
+				alert("数字限制在10-100");
+				return false;
+			}
+			return true;
+		}
+		
+	
+})();
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务六：基础JavaScript练习-模糊匹配-正则表达式</title>
+<style type="text/css">
+#content{
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+
+}
+#content .span{
+	color:red; 
+}
+</style>
+</head>
+<body>
+<div  id="content" contenteditable="true";></div>
+<input type="text" name="search" id="keyword"><button id="btn">查询</button>
+
+<button id="test">test</button>
+<script type="text/javascript">
+	var btn=document.getElementById("btn");
+	var keyword=document.getElementById("keyword");
+	var content=document.getElementById("content");
+	var data=[];
+	var result=[];
+	btn.onclick=function(){
+
+		var before=content.innerHTML.trimRight().replace(/<[^<]*>/gi,"");//替换标签为空
+		console.log("before:"+before);
+		var pattern=/keyword.value/g;
+		var highlight="<span class='span'>"+keyword.value+"</span>";//匹配字体红色
+		//data=content.innerHTML.split(/[^\u4E00-\u9FA5A-Za-z0-9]/g);
+		
+		var result=before.replace(eval('/'+keyword.value+'/g'),highlight);
+		content.innerHTML=result;
+	}
+
+
+</script>
+</body>
+</html>
