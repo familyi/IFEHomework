@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务六：基础JavaScript练习（三）</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		li{
+			padding: 10px;
+			display: inline-block;
+			text-align: center;
+			font-size: 24px;
+			color: #fff;
+			background: red;
+			cursor: pointer;
+			margin: 10px;
+		}
+		b{color: black;}
+	</style>
+</head>
+<body>
+	<textarea id="txt" cols="30" rows="5" style="vertical-align: bottom"></textarea>
+	<button>左侧入</button>
+	<button>右侧入</button>
+	<button>左侧出</button>
+	<button>右侧出</button>
+	<input type="text" id="search">
+	<button>搜索</button>
+	<ul id="container"></ul>
+	<script type="text/javascript">
+		var txt = document.getElementById("txt"),
+			btns = document.getElementsByTagName("button"),
+			leftIn = btns[0],
+			rightIn = btns[1],
+			leftOut = btns[2],
+			rightOut = btns[3],
+			sbtn = btns[4],
+			sinput = document.getElementById("search"),
+			ul = document.getElementById("container");
+		//左侧入
+		leftIn.onclick = function(){
+			var number = txt.value;
+			number = number.replace(/\n|,|，|、|　| |	/g,",");
+			var arr = number.split(",");
+			console.log(arr);
+			arr.reverse().forEach(item => {
+				if(item != ""){
+					var li = document.createElement("li");
+					li.innerText = item;
+					ul.insertBefore(li,ul.firstChild);
+				}
+			});
+			txt.value = "";
+			
+		}
+		//右侧入
+		rightIn.onclick = function(){
+			var number = txt.value;
+			number = number.replace(/\n|,|，|、|　| |	/g,",");
+			var arr = number.split(",");
+			console.log(arr);
+			arr.forEach(item => {
+				if(item != ""){
+					var li = document.createElement("li");
+					li.innerText = item;
+					ul.appendChild(li);
+				}
+			});
+			txt.value = "";
+		}
+		//左侧出
+		leftOut.onclick = function(){
+			var li = ul.getElementsByTagName("li")[0];
+			ul.removeChild(li);
+			var value = li.innerText;
+			alert("您移除的值为："+value);
+		}
+		//右侧出
+		rightOut.onclick = function(){
+			var list = ul.getElementsByTagName("li"),
+				li = list[list.length-1];
+			ul.removeChild(li);
+			var value = li.innerText;
+			alert("您移除的值为："+value);
+		}
+		//点击移除
+		ul.onclick = function(e){
+			var e = e || window.event;
+			var target = e.target;
+			if(target.nodeName == "LI"){
+				ul.removeChild(target);
+			}else{
+				return false;
+			}
+		}
+
+		sbtn.onclick = function(){
+
+			var value = sinput.value;
+			var list = ul.getElementsByTagName("li");
+			for(var i=0,len=list.length;i<len;i++){
+				list[i].innerHTML = list[i].innerHTML.replace(/\<b\>|\<\/b\>/g,"");
+				list[i].style.background = "red";
+				if(list[i].innerText.indexOf(value) !== -1){
+					list[i].innerHTML = list[i].innerHTML.replace(value,"<b>"+value+"</b>");
+					list[i].style.background = "yellow";
+				}
+			}
+		}
+
+		txt.onkeydown= function(e){
+			if(e.keyCode === 9){
+				this.value += "	";
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

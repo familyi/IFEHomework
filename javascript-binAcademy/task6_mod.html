@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务六：基础JavaScript练习</title>
+<style type="text/css">
+#num-input{
+	resize: none;
+}
+#content{
+	list-style: none;
+	height: 400px;
+}
+
+.num{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid black;
+	text-align: center;
+	margin-right: 4px;
+	cursor: pointer;
+	float: left;
+}
+
+.num span{
+	color: green;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+<textarea  id="num-input" rows="8" cols="15"></textarea>
+
+<button id="left_in">左侧入</button>
+<button id="right_in">右侧入</button>
+<button id="left_out">左侧出</button>
+<button id="right_out">右侧出</button>
+
+<input type="text" name="text" id="keyword"><button id="sbtn">搜索</button>
+<ul id="content"></ul>
+
+<script type="text/javascript">
+	
+(function(){
+	
+	var content=document.getElementById("content");
+	var left_in=document.getElementById("left_in");
+	var left_out=document.getElementById("left_out");
+	var right_in=document.getElementById("right_in");
+	var right_out=document.getElementById("right_out");	
+	var num_input=document.getElementById("num-input");
+
+	var sbtn=document.getElementById("sbtn");
+	var result=[]; //总数组
+
+		left_in.addEventListener("click",leftIn,false);
+		left_out.addEventListener("click",leftOut,false);
+		right_in.addEventListener("click",rightIn,false);
+		right_out.addEventListener("click",rightOut,false);
+
+		//高亮显示
+		sbtn.onclick=function highlight(){
+			var keyword_input=document.getElementById("keyword");
+			var keyword=keyword_input.value;
+			var lis=content.getElementsByTagName("li");
+			for(var i=0;i<lis.length;i++){
+				var before=lis[i].innerHTML.replace(/<[^<]*>/gi,"");
+				lis[i].innerHTML=before;
+				lis[i].style.backgroundColor="white";
+				if(lis[i].innerHTML.indexOf(keyword)>-1){
+					var light=before.replace(eval('/'+keyword+'/g'),"<span>"+keyword+"</span>");
+					lis[i].innerHTML=light;
+					lis[i].style.backgroundColor="orange";
+				}
+			}
+		}
+
+		//分隔新数据
+		function getData(){
+			var data=[];
+		    data=num_input.value.trimRight().split(/[^\u4E00-\u9FA5A-Za-z0-9]/g);
+		    var dataFilter= data.filter(function(item,index,array){
+		    	return array[index]!="";
+		    });
+
+			return dataFilter;
+		}
+
+
+		//左进
+		function leftIn(){
+			var data=getData();
+			if(validate()){
+				var value=num_input.value;
+				if((data.length+result.length)<10){
+					for (var i = 0; i < data.length; i++) {
+						result.unshift(data[i]);
+						console.log("data:"+data);
+						var li=document.createElement("li");
+						li.className="num";	
+						li.style.transition="";
+						li.innerHTML=data[i];	
+						content.insertBefore(li,content.childNodes[0]);	
+
+					}
+					num_input.innerHTML="";	
+							
+				}else{
+					alert("元素不能超过10个！");
+					num_input.innerHTML="";
+				}
+			}
+			
+			
+		}
+
+		//左出
+		function leftOut(){
+			var data=getData();
+			if(data.length==0){
+				alert("元素为空！");return;
+			}
+			var lis=content.getElementsByTagName("li");
+			var out=result.shift();
+			content.removeChild(lis[0]);
+			alert("你删除的元素是："+out);
+		}
+		//右进
+		function rightIn(){
+			var data=getData();
+			if(validate()){
+				var value=num_input.value;
+				if((data.length+result.length)<10){
+					for(var i=0;i<data.length;i++){
+						result.push(data[i]);
+						var li=document.createElement("li");
+						li.className="num";	
+						li.innerHTML=data[i];	
+						content.appendChild(li);	
+					}				
+					num_input.innerHTML="";	
+				}else{
+					alert("元素不能超过10个！");
+					num_input.innerHTML="";	
+				}
+				
+			}	
+			num_input.innerHTML="";
+		}
+		//右出
+		function rightOut(){
+			var data=getData();
+			if(data.length==0){
+				alert("元素为空！");
+			}else{
+				var lis=content.getElementsByTagName("li");
+				var out=result.pop();
+				content.removeChild(lis[lis.length-1]);
+				alert("你删除的元素是："+out);
+			}
+			
+		}
+
+		//点击删除li
+		content.onclick=function delLi(e){
+			var e =e || window.event;
+			var target=e.target;
+			console.log("++++");
+			if(target.nodeName == "LI"){
+				content.removeChild(target);
+			}
+		}
+
+		//验证：10-100数字
+		function validate(){
+			var value=num_input.value;
+			if(value>100||value<10){
+				num_input.value="";
+				alert("数字限制在10-100");
+				return false;
+			}
+			return true;
+		}	
+	
+})();
+
+
+
+
+</script>
+</body>
+</html>
