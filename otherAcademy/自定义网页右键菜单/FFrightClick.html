@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>自定义菜单右键--仅FireFox有效</title>
+<style type="text/css">
+#menuBox{
+	width: 200px;
+	height: 200px;
+	background-color: #ccc;
+}
+</style>
+</head>
+<body>
+<div contextmenu="mymenu" id="menuBox">
+	<div class="context">这里有个菜单，需要在FF中打开</div>
+	<menu id="mymenu" type="context">
+		<menuitem label="小一" icon="icon1.png" onclick="doSomething()"></menuitem>
+		<menuitem label="小红" icon="icon1.png" onclick="doSomething()"></menuitem>
+		<menuitem label="小明" icon="icon1.png" onclick="doSomething()"></menuitem>
+		<menu label="menu2">
+			<menuitem label="大一" icon="icon1.png"></menuitem>
+			<menuitem label="大红" icon="icon1.png"></menuitem>
+			<menuitem label="大明" icon="icon1.png"></menuitem>
+		</menu>
+	</menu>
+</div>
+</body>
+</html>

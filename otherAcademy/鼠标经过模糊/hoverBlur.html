@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>有趣的鼠标悬浮模糊效果</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0 ;
+}
+.container{
+	width: 399px;
+	height: 197px;
+	
+	position: relative;
+}
+.blur-bg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(pic.png) no-repeat;
+}
+.wrap{
+	width: 350px;
+	height: 150px;
+	position: relative;
+	top: 23px;
+	left: 22px;
+
+}
+.box{
+	opacity: 0;
+	padding-top: 30px;
+	transition: all 0.5s;
+}
+.box:before{
+	content: '';
+	position: absolute;
+	top:50%;
+	left: 0;
+	width: 100%;
+	height: 0px;
+	border: 2px solid ghostwhite;
+	border-width: 0 2px;
+	overflow: hidden;
+	visibility: hidden;
+	transition: all 1s;
+	box-sizing: border-box;
+}
+
+.box:after{
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 0;
+	height: 100%;
+	border: 3px solid ghostwhite;
+	border-width: 3px 0;
+	overflow: hidden;
+	visibility: hidden;
+	transition: all .8s;
+	box-sizing: border-box;
+}
+.container:hover .box{
+	opacity: 1;
+	padding-top: 20px;
+}
+.container:hover .box:before{
+	height: 100%;
+	top: 0;
+	visibility: visible;
+}
+.container:hover .box:after{
+	width:  100%;
+	left: 0;
+	visibility: visible;
+}
+.container:hover .blur-bg{
+  -webkit-filter:blur(5px);
+  -moz-filter:blur(5px);
+  -ms-filter:blur(5px);
+  -o-filter:blur(5px);
+  filter:blur(5px);
+}
+.text-bg{
+	background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+	color: transparent;
+	-webkit-text-fill-color:transparent;
+	-webkit-background-clip:text;
+	-webkit-background-size:200% 100%;
+	-webkit-animation:wel 8s infinite linear;
+}
+@keyframes wel{
+	from{background-position: 0 0;}
+	to{background-position: -100% 0;}
+}
+@-webkit-keyframes wel{
+	from{background-position: 0 0;}
+	to{background-position: -100% 0}
+}
+.wel{
+	font: bold 26px/60px "黑体";
+	line-height: 60px;
+	text-align: center;
+}
+.sign{
+	font: bold 20px/20px "黑体";
+	line-height: 20px;
+	text-align: center;
+	color: green;
+	animation: sign 3s infinite linear;
+}
+@keyframes sign{
+	from{color: green;}
+	to{color: blue;}
+}
+
+.container:hover .sign,.container:hover .text-bg{
+	visibility: visible;
+}
+</style>
+<body>
+<div class="container">
+	<div class="blur-bg"></div>
+	<div class="wrap">
+		<div class="box">
+			<div class="text-bg">
+				<p class="wel">欢迎参加百度前端技术学院</p>	
+			</div>
+			<p class="sign">点击加入</p>
+		</div>	
+	</div>
+</div>
+</body>
+</html>

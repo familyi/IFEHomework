@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS实现自定义右键菜单——HTML5的contextmenu事件法</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+.menu{
+	width: 400px;
+	height: 400px;
+	background-color: #ccc;
+	margin: 20px;
+}
+ul{
+	list-style: none;
+	box-shadow: 2px 2px 10px #000;
+}
+li{
+	line-height: 28px;
+}
+li:hover a{
+	background-color: #999;
+	color: #fff;
+}
+a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: red;
+	font: bold 14px/28px;
+}
+#supermenu{
+	position: absolute;
+	display: none;
+	text-align: center;
+	width:80px;
+	height: 112px;
+	border: 1px solid #000;
+	background-color: #fff;
+
+}
+</style>
+</head>
+<body>
+<div class="menu context" id="menuBox">这里有一个菜单一</div>
+<div class="menu context" id="menuBox2">这里有一个菜单二</div>
+<div class="menu context" id="menuBox3">这里有一个菜单三</div>
+<div id="supermenu" style="">
+	<ul>
+		<li><a href="#">item1</a></li>
+		<li><a href="#">item2</a></li>
+		<li><a href="#">item3</a></li>
+		<li><a href="#">item4</a></li>
+	</ul>
+</div>
+<script type="text/javascript">
+$=function(element){
+	return document.querySelectorAll(element);
+}
+//获得左、上偏移量
+function getElementLeft(element){
+     var actualLeft=element.offsetLeft;
+     var current=element.offsetParent;
+
+     while(current != null){
+          actualLeft+=current.offsetLeft;
+          current=current.offsetParent;
+     }
+
+     return actualLeft;
+}
+
+function getElementTop(element){
+     var actualTop=element.offsetTop;
+     var current=element.offsetParent;
+
+     while(current != null){
+          actualTop+=current.offsetTop;
+          current=current.offsetParent;
+     }
+
+     return actualTop;
+}
+
+var mymenu=document.getElementById("supermenu");
+
+for(var i=0;i<$(".menu").length;i++){
+	$(".menu")[i].addEventListener("contextmenu",function(e){
+		e.preventDefault();//阻止原有菜单
+		e.returnValue=false;//IE阻止原有的菜单
+
+		mymenu.style.cssText="display:block";
+
+		var boxLeft=getElementLeft(this);
+		var boxTop=getElementTop(this);
+		var boxWidth=this.offsetWidth;
+		var boxHeight=this.offsetHeight;
+		var menuwidth=mymenu.offsetWidth;
+		var menuheight=mymenu.offsetHeight;
+		var bb=boxHeight-e.pageY-boxTop;
+		console.log("boxHeight:"+boxHeight+"boxHeight-e.pageY-boxTop:"+bb+"menuheight"+menuheight)
+		if(boxHeight-e.pageY+boxTop>=menuheight){
+			mymenu.style.top=e.pageY+"px";
+
+		}else{
+			mymenu.style.top=e.pageY-menuheight+"px";
+		}
+
+		if(boxWidth-e.pageX+boxLeft>=menuwidth){
+			mymenu.style.left=e.pageX+"px";
+		}else{
+			mymenu.style.left=e.pageX-menuwidth+"px";
+		}
+
+
+	});
+
+	document.body.addEventListener("click",function(e){
+		mymenu.style.cssText='display:none;';
+	});
+
+}
+</script>
+</body>
+</html>
