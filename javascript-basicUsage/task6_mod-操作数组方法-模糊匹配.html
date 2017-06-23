@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>任务六：基础JavaScript练习</title>
+<title>任务六：操作数组方法-模糊模糊匹配</title>
 <style type="text/css">
 #num-input{
 	resize: none;
@@ -30,6 +30,17 @@
 </style>
 </head>
 <body>
+<div>
+模拟一个队列，队列的每个元素是一个数字，初始队列为空
+有一个input输入框，以及4个操作按钮
+
+	<ol>
+		<li>在textarea一次批量输入多个内容，<small>(格式可以为数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号作为不同内容的间隔)</small></li>
+		<li>点击队列中任何一个元素，则该元素会被从队列中删除</li>
+		<li>当点击查询时，将查询词在各个元素内容中做模糊匹配，将匹配到的内容进行特殊标识，如文字颜色等。举例，内容中有abcd，查询词为ab或bc，则该内容需要标识</li>
+	</ol>
+</div>
+<hr>
 <textarea  id="num-input" rows="8" cols="15"></textarea>
 
 <button id="left_in">左侧入</button>
